@@ -1,0 +1,24 @@
+{
+  "Name": "Please provide dataset name here",
+  "BIDSVersion": "1.0.1",
+  "License": "CC0",
+  "Authors": [
+    "",
+    ""
+  ],
+  "Acknowledgements": "",
+  "HowToAcknowledge": "",
+  "Funding": [
+    "",
+    ""
+  ],
+  "EthicsApprovals": [
+    ""
+  ],
+  "ReferencesAndLinks": [
+    "",
+    ""
+  ],
+  "DatasetDOI": ""
+}
+

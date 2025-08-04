@@ -1,0 +1,18 @@
+folders=`ls -d */`
+for i in $folders;
+do
+	cd $i
+	subfolders=`ls -d */`
+	for j in $subfolders;
+	do
+		cd $j
+		files=`ls *`
+		for k in $files
+		do
+			mv $k $k.dcm
+		done
+		cd ..
+	done
+	cd ..
+done
+

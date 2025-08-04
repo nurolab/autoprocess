@@ -1,0 +1,20 @@
+folders=`ls -d */`
+for i in $folders;
+do
+	cd $i
+	subfolders=`ls -d */`
+	for j in $subfolders;
+	do
+		cd $j
+		files=`ls *`
+		for k in $files
+		do
+			if [[ $k == *".dcm"* ]]; then
+				rm $k
+			fi
+		done
+		cd ..
+	done
+	cd ..
+done
+

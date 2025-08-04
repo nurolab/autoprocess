@@ -1,0 +1,38 @@
+folders=`ls -d */`
+taskname=task-rest_bold
+anat=T1w
+for i in $folders;
+do
+	cd $i
+	subfolders=`ls -d */`
+	for j in $subfolders;
+	do
+		cd $j
+		files=`ls *`
+		for k in $files
+		do
+			if [[ $k == *"mprage"*".nii"* ]]; then
+				pref=`basename $i /`_				
+				mv $k $pref$anat.nii
+				echo "Renaming anatomical files"
+			fi
+			if [[ $k == *"ep2d_pace"*".nii"* ]]; then
+				pref=`basename $i /`_				
+				mv $k $pref$taskname.nii
+				echo "Renaming functional files"
+			fi
+			if [[ $k == *"mprage"*".json"* ]]; then
+				pref=`basename $i /`_
+				mv $k $pref$anat.json
+				echo "Renaming anatomical metadata files"
+			fi
+			if [[ $k == *"ep2d_pace"*".json"* ]]; then
+				pref=`basename $i /`_
+				mv $k $pref$taskname.json
+				echo "Renaming functional metadata files"
+			fi
+		done
+		cd ..
+	done
+	cd ..
+done

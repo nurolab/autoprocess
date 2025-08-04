@@ -1,0 +1,12 @@
+folders=`ls -d */`
+
+for i in $folders;
+do
+	cd $i
+	subfolders=`ls -d */`
+	for j in $subfolders;
+	do
+		dcm2niix_afni -f %p_%s -ba y $j
+	done
+	cd ..
+done

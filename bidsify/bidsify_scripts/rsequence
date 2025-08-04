@@ -1,0 +1,20 @@
+folders=`ls -d */`
+
+for i in $folders;
+do
+	cd $i
+	subfolders=`ls -d */`
+	for j in $subfolders;
+	do
+	string=$j
+	if [[ $string == *"mprage"* ]]; then
+		mv $j anat
+		echo "Renaming anatomical volume folders"
+	fi
+	if [[ $string == *"ep2d_pace"* ]]; then
+		mv $j func
+		echo "Renaming functional volume folders"
+	fi
+	done
+	cd ..	
+done

@@ -1,0 +1,15 @@
+folders=`ls -d */` # List subject folders in working directory
+echo $folders
+prefix='sub-' # Set your prefix here
+
+# Rename subject folders
+for i in $folders;
+do
+	echo $i;
+	n_folders=`expr $n_folders + 1`
+	x=`basename $i /`
+	echo $x
+	mv $x $prefix$n_folders	
+done
+echo "Total subjects = $n_folders"
+
